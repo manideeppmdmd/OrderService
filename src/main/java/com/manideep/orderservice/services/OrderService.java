@@ -40,14 +40,14 @@ public class OrderService implements IOrderService {
       double totalPrice = itemDto.getQuantity() * pricePerUnit;
 
       items.add(
-        OrderItemMapper.toEntity(itemDto, order, totalPrice, totalPrice)
+        OrderItemMapper.toEntity(itemDto, order, pricePerUnit, totalPrice)
       );
     }
 
     order.setItems(items);
 
-    this.orderRepository.save(OrderMapper.toEntity(dto));
+    Order savedOrder = this.orderRepository.save(order);
 
-    return OrderMapper.toDto(order);
+    return OrderMapper.toDto(savedOrder);
   }
 }
