@@ -13,7 +13,7 @@ public class ProductServiceClient {
   public ProductServiceClient(
     RestClient.Builder restClientBuilder,
     @Value(
-      "${product.service.base-url:http://localhost:8081}"
+      "${product.service.base-url:http://ECOMMERCESPRING}"
     ) String productServiceBaseUrl
   ) {
     this.restClient = restClientBuilder.baseUrl(productServiceBaseUrl).build();
